@@ -1,0 +1,13 @@
+- type: serial
+  steps:
+  - name: tests
+    service: app
+    command: ./gradlew test --no-daemon --console plain
+  - name: package
+    service: app
+    #tag: master
+    command: ./gradlew shadowJar --no-daemon --console plain
+  - name: deploy
+    #tag: master
+    service: deploy
+    command: sls deploy --stage x --verbose

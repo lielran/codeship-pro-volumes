@@ -1,0 +1,7 @@
+FROM node:6-alpine
+
+WORKDIR /app
+
+RUN npm install -g serverless
+
+ADD . ./

@@ -1,0 +1,11 @@
+app:
+  build:
+    dockerfile: Dockerfile
+  volumes:
+      - ./build/libs:/app/build/libs
+
+deploy:
+  build:
+    dockerfile: Dockerfile.deploy
+  volumes_from:
+      - app
